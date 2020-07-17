@@ -288,7 +288,7 @@ if (!hasSelectedOffer && !individualOffer) {
 }
 ```
 
-### Use nullish coalescing to access object properties instead of destructuring 
+### Prefer to use nullish coalescing to access object properties instead of destructuring 
 
 Bad
 ```
