@@ -34,7 +34,7 @@ LeadsList/
 
 ## Project Organization 
 
-The source code of a project should be separated with at least these following essencial directories: 
+The source code of a project should be separated with at least these following essential directories: 
 
 ```
 awesome-project/
@@ -92,6 +92,8 @@ const isNumber = getNumberValidation('error message')
 isNumber(1)
 ```
 
+<br />
+
 ### Use searchable and semantic names
 
 Bad
@@ -108,7 +110,7 @@ setTimeout(doSomething, DAY_IN_MILLISECONDS)
 
 [Back to top ⬆️](#pushpin-table-of-contents)
 
-### Just leave TODOs if it's related with a new issue
+### Just leave TODOs if it's related to a new issue
 
 Bad
 ```
@@ -122,7 +124,9 @@ Good
   {...}
 ```
 
-### Leave comments for workrounds related to issues with a lib/language 
+<br />
+
+### Leave comments for workarounds related to issues with a lib/language 
 
 Bad
 ```
@@ -142,6 +146,8 @@ const handleFilePreview = useCallback((event) => {
  // eslint-disable-next-line no-param-reassign
  event.target.value = "";
 ```
+
+<br />
 
 ### Apply JSDocs to utility functions or constants to improve readability 
 
@@ -166,6 +172,8 @@ const truncateEventName = (
 ) => (
 ```
  
+<br />
+
 Bad
 ```
 const chatEventsStatuses = {
@@ -188,7 +196,9 @@ const chatEventsStatuses = {
   CURRENT_USER_WAS_ADDED,
 ```
 
-### Use curried functions to avoid recreating inline functions on every render of the component 
+<br />
+
+### Use curried functions to avoid re-creating inline functions on every render of the component 
 
 Bad
 ```
@@ -207,6 +217,8 @@ const handleClick = (item) => () => {
 
 <Button onClick={handleClick(item)}>
 ```
+
+<br />
 
 ### Break lines for multiple hook dependencies
 
@@ -247,6 +259,8 @@ useEffect(() => {
   ]);
 ```
 
+<br />
+
 ### Break lines for multiple conditions and extract to semantic variables
 
 Bad
@@ -274,7 +288,7 @@ if (!hasSelectedOffer && !individualOffer) {
 }
 ```
 
-### Use nulish coalescing to access object properties instead of destructuring 
+### Use nullish coalescing to access object properties instead of destructuring 
 
 Bad
 ```
@@ -294,7 +308,7 @@ Good
 
 ## Components 
 
-### One line props when are more than 2 or big props
+### Avoid one line props when are more than 2 or big props
 
 Bad
 ```jsx
@@ -319,6 +333,8 @@ Good
   Click here
 </button>
 ```
+
+<br />
 
 ### JSX Indentation - Curly Braces 
 
@@ -357,7 +373,7 @@ Good
 
 ### Variables 
 
-It's important to use variables in order to increase reusability of the styles and also to be consistent. 
+It's important to use variables in order to increase the reusability of styles and also to be consistent. 
 
 For instance:
 
@@ -389,9 +405,11 @@ $aspect-ratio: 1.78;
 }
 ```
 
+<br />
+
 ### Don't use values that are not specified in the project design system
 
-When applying margin, padding (spaces in general) or lengths, try as much as possible to use the classes from the design system. If there's no class that apply to the case, then extract it to a variable in order to be more verbose. 
+When applying margin, padding (spaces in general) or lengths, try as much as possible to use the classes from the design system. If there's no class that applies to the case, then extract it to a variable in order to be more verbose. 
 
 Bad 
 ```
