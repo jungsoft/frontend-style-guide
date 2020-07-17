@@ -7,6 +7,13 @@
 The goal of this guide is to help our team to understand and
 follow code style best practices, maintaining a pattern.
 
+# :pushpin: Table of Contents
+
+* [Components Definition](#components-definition)
+* [Project Organization](#project-organization)
+* [Code Standarts](#code-standards)
+* [Styles Patterns](#styles-patterns)
+
 ## Components Definition 
 
 All components should be definied within a directory. The component name should be equal to the directory 
