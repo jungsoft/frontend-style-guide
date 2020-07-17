@@ -288,6 +288,38 @@ if (!hasSelectedOffer && !individualOffer) {
 }
 ```
 
+# Break lines between queries and mutations hooks
+
+Bad
+```
+  const [currentUser] = useCurrentUser();
+  const notify = useSnackbar();
+  const [t] = useTranslation();
+  const [sendRiskAssessment] = useMutation(SEND_RISK_ASSESSMENT_MUTATION);
+  const {
+    loading: healthCentersLoading,
+    error: healthCentersError,
+    data: healthCentersData,
+    refetch: healthCentersRefetch,
+  } = useSafeQuery(GET_LIST_HEALTH_CENTER_QUERY);
+```
+
+Good 
+```
+  const [currentUser] = useCurrentUser();
+  const notify = useSnackbar();
+  const [t] = useTranslation();
+  
+  const [sendRiskAssessment] = useMutation(SEND_RISK_ASSESSMENT_MUTATION);
+  
+  const {
+    loading: healthCentersLoading,
+    error: healthCentersError,
+    data: healthCentersData,
+    refetch: healthCentersRefetch,
+  } = useSafeQuery(GET_LIST_HEALTH_CENTER_QUERY);
+ ```
+
 ### Prefer to use nullish coalescing to access object properties instead of destructuring 
 
 Bad
