@@ -27,7 +27,7 @@ LeadsList/
 
 ## Project Organization 
 
-The source code of a project should be separated with the following essencial directories: 
+The source code of a project should be separated with at least these following essencial directories: 
 
 ```
 awesome-project/
@@ -41,17 +41,10 @@ awesome-project/
    └── settings/
 ```
 
-Each of these directories have special types of components:
-
 ### `components/`
 
 Most of the components will be function-based components. The choice between presentation and container implementations depends
 of the scenario.
-
-
-### `views/`
-
-Views components are responsible for returning components and flowing data into the application.
 
 ### `GraphQL Structure`
 
@@ -156,4 +149,49 @@ $screen-lg: 991px;
 $screen-xl: 1199px;
 ```
 
+```
+$aspect-ratio: 1.78;
+
+.media-container {
+ right: calc(#{$video-width} * #{$video-position-ratio});
+ width: $video-width;
+ height: calc(#{$video-width} / 1.78);
+ height: calc(#{$video-width} / #{$aspect-ratio});
+}
+```
+
 ### Don't use values that are not specified in the project design system
+
+When applying margin, padding (spaces in general) or lengths, try as much as possible to use the classes from the design system. If there's no class that apply to the case, then extract it to a variable in order to be more verbose. 
+
+Bad 
+```
+.media-container {
+  margin-bottom: 25px; 
+}
+```
+
+Good 
+```
+<div className="mb-2 media-container">{...}</div>
+```
+
+Bad
+```
+.media-container {
+   width: 250px; 
+} 
+```
+
+<br />
+
+Good 
+```
+// COMPONENTS LENGTHS
+$media-container-width: 250px;
+
+.media-container {
+   width: $media-container-width;
+}
+```
+
