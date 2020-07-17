@@ -14,27 +14,27 @@ follow code style best practices, maintaining a pattern.
 * [Code Standards](#code-standards)
 * [Styles Patterns](#styles-patterns)
 
-## Components Definition 
+## Components Definition
 
-All components should be definied within a directory. The component name should be equal to the directory 
-and also would have some variants according to his type. 
+All components should be definied within a directory. The component name should be equal to the directory
+and also would have some variants according to his type.
 
 ```
 LeadsList/
 ├── LeadsList.tsx
 ```
 
-If it has some logic that would lead to a separation of concerns between presentational 
-and container components, the structure should be as following: 
+If it has some logic that would lead to a separation of concerns between presentational
+and container components, the structure should be as following:
 ```
 LeadsList/
 ├── LeadsListContainer.tsx
 ├── LeadsListContent.tsx
 ```
 
-## Project Organization 
+## Project Organization
 
-The source code of a project should be separated with at least these following essential directories: 
+The source code of a project should be separated with at least these following essential directories:
 
 ```
 awesome-project/
@@ -55,24 +55,24 @@ of the scenario.
 
 ### `GraphQL Structure`
 
-A directory called ``graphql`` should be created inside the component/view directory in order to store the query/mutation files. 
+A directory called ``graphql`` should be created inside the component/view directory in order to store the query/mutation files.
 
 ```
 awesome-project/
 └── src/
    └── components/
-       └── Leads  
-           └── graphql 
-              └── listLeadsQuery.ts 
+       └── Leads
+           └── graphql
+              └── listLeadsQuery.ts
               └── updateLeadsMutation.ts
 ```
 
-[Back to top ⬆️](#pushpin-table-of-contents) 
+[Back to top ⬆️](#pushpin-table-of-contents)
 
 # Code standards
 
 ### Use explanatory variables
-Bad
+❌ Bad
 ```js
 const onlyNumbersRegex = /^\d+$/
 const validateNumber = message => value => !onlyNumbersRegex.test(value) && message
@@ -80,7 +80,7 @@ const validateNumber = message => value => !onlyNumbersRegex.test(value) && mess
 validateNumber('error message')(1)
 ```
 
-Good
+✅ Good
 ```js
 const onlyNumbersRegex = /^\d+$/
 const getNumberValidation = message => value => !onlyNumbersRegex.test(value) && message
@@ -94,12 +94,12 @@ isNumber(1)
 
 ### Use searchable and semantic names
 
-Bad
+❌ Bad
 ```js
 setTimeout(doSomething, 86400000)
 ```
 
-Good
+✅ Good
 ```js
 const DAY_IN_MILLISECONDS = 86400000
 
@@ -110,13 +110,13 @@ setTimeout(doSomething, DAY_IN_MILLISECONDS)
 
 ### Just leave TODOs if it's related to a new issue
 
-Bad
+❌ Bad
 ```
-  // TODO: Extract this to a component. 
+  // TODO: Extract this to a component.
   {...}
 ```
 
-Good 
+✅ Good
 ```
   // TODO: Support recording voice messages in chat.
   {...}
@@ -124,22 +124,22 @@ Good
 
 <br />
 
-### Leave comments for workarounds related to issues with a lib/language 
+### Leave comments for workarounds related to issues with a lib/language
 
-Bad
+❌ Bad
 ```
 const handleFilePreview = useCallback((event) => {
  const file = Array.from(event.target.files)[0];
- 
+
  // eslint-disable-next-line no-param-reassign
  event.target.value = "";
 ```
 
-Good
+✅ Good
 ```
 const handleFilePreview = useCallback((event) => {
  const file = Array.from(event.target.files)[0];
-    
+
  // Refer to issue https://github.com/ngokevin/react-file-reader-input/issues/11#issuecomment-363484861
  // eslint-disable-next-line no-param-reassign
  event.target.value = "";
@@ -147,9 +147,9 @@ const handleFilePreview = useCallback((event) => {
 
 <br />
 
-### Apply JSDocs to utility functions or constants to improve readability 
+### Apply JSDocs to utility functions or constants to improve readability
 
-Bad
+❌ Bad
 ```
 const truncateEventName = (
   eventName,
@@ -157,7 +157,7 @@ const truncateEventName = (
 ) => (
 ```
 
-Good
+✅ Good
 ```
 /**
  * Truncates one event name to the max length.
@@ -169,10 +169,10 @@ const truncateEventName = (
   maxLength = SHORT_EVENT_NAME_LENGTH,
 ) => (
 ```
- 
+
 <br />
 
-Bad
+❌ Bad
 ```
 const chatEventsStatuses = {
   CURRENT_USER_LEFT,
@@ -181,7 +181,7 @@ const chatEventsStatuses = {
   CURRENT_USER_WAS_ADDED,
 ```
 
-Good
+✅ Good
 ```
 /**
  * The chat event statuses according to the
@@ -196,9 +196,9 @@ const chatEventsStatuses = {
 
 <br />
 
-### Use curried functions to avoid re-creating inline functions on every render of the component 
+### Use curried functions to avoid re-creating inline functions on every render of the component
 
-Bad
+❌ Bad
 ```
 const handleClick = (item) => {
  {...}
@@ -207,7 +207,7 @@ const handleClick = (item) => {
 <Button onClick={() => handleClick(item)}>
 ```
 
-Good
+✅ Good
 ```
 const handleClick = (item) => () => {
  {...}
@@ -220,7 +220,7 @@ const handleClick = (item) => () => {
 
 ### Break lines for multiple hook dependencies
 
-Bad
+❌ Bad
 ```
 useEffect(() => {
     if (file) {
@@ -235,7 +235,7 @@ useEffect(() => {
   }, [setFileSource, file, fileSource, isVideo, notify, t]);
 ```
 
-Good
+✅ Good
 ```
 useEffect(() => {
     if (file) {
@@ -261,7 +261,7 @@ useEffect(() => {
 
 ### Break lines for multiple conditions and extract to semantic variables
 
-Bad
+❌ Bad
 ```
 const hasSelectedOffer = !!(
       selectedProduct
@@ -274,7 +274,7 @@ if ((!selectedProduct && !selectedLeasingOffer) || !individualOffer) {
 
 ```
 
-Good
+✅ Good
 ```
 const hasSelectedOffer = !!(
    selectedProduct
@@ -288,7 +288,7 @@ if (!hasSelectedOffer && !individualOffer) {
 
 ### Break lines between queries and mutations hooks
 
-Bad
+❌ Bad
 ```
   const [currentUser] = useCurrentUser();
   const notify = useSnackbar();
@@ -302,14 +302,14 @@ Bad
   } = useSafeQuery(GET_LIST_HEALTH_CENTER_QUERY);
 ```
 
-Good 
+✅ Good
 ```
   const [currentUser] = useCurrentUser();
   const notify = useSnackbar();
   const [t] = useTranslation();
-  
+
   const [sendRiskAssessment] = useMutation(SEND_RISK_ASSESSMENT_MUTATION);
-  
+
   const {
     loading: healthCentersLoading,
     error: healthCentersError,
@@ -318,9 +318,9 @@ Good
   } = useSafeQuery(GET_LIST_HEALTH_CENTER_QUERY);
  ```
 
-### Prefer to use nullish coalescing to access object properties instead of destructuring 
+### Prefer to use nullish coalescing to access object properties instead of destructuring
 
-Bad
+❌ Bad
 ```
   const {
     values: {
@@ -329,18 +329,18 @@ Bad
   } = formikForm;
 ```
 
-Good
+✅ Good
 ```
   const answers = formikForm?.values?.answers;
 ```
 
 [Back to top ⬆️](#pushpin-table-of-contents)
 
-## Components 
+## Components
 
 ### Avoid one line props when are more than 2 or big props
 
-Bad
+❌ Bad
 ```jsx
 <button type="submit" disabled onClick={() => null} className="aLongSpecificClassName">
   Click here
@@ -352,7 +352,7 @@ Bad
 ```
 
 
-Good
+✅ Good
 ```jsx
 <button
   className="aLongSpecificClassNameWithLasers"
@@ -366,9 +366,9 @@ Good
 
 <br />
 
-### JSX Indentation - Curly Braces 
+### JSX Indentation - Curly Braces
 
-Bad
+❌ Bad
 ```
 {!isEnd && (
    <Button
@@ -382,7 +382,7 @@ Bad
 )}
 ```
 
-Good 
+✅ Good
 ```
 {
    !isEnd && (
@@ -401,9 +401,9 @@ Good
 
 ## Styles Patterns
 
-### Variables 
+### Variables
 
-It's important to use variables in order to increase the reusability of styles and also to be consistent. 
+It's important to use variables in order to increase the reusability of styles and also to be consistent.
 
 For instance:
 
@@ -439,30 +439,30 @@ $aspect-ratio: 1.78;
 
 ### Don't use values that are not specified in the project design system
 
-When applying margin, padding (spaces in general) or lengths, try as much as possible to use the classes from the design system. If there's no class that applies to the case, then extract it to a variable in order to be more verbose. 
+When applying margin, padding (spaces in general) or lengths, try as much as possible to use the classes from the design system. If there's no class that applies to the case, then extract it to a variable in order to be more verbose.
 
-Bad 
+❌ Bad
 ```
 .media-container {
-  margin-bottom: 25px; 
+  margin-bottom: 25px;
 }
 ```
 
-Good 
+✅ Good
 ```
 <div className="mb-2 media-container">{...}</div>
 ```
 
-Bad
+❌ Bad
 ```
 .media-container {
-   width: 250px; 
-} 
+   width: 250px;
+}
 ```
 
 <br />
 
-Good 
+✅ Good
 ```
 // COMPONENTS LENGTHS
 $media-container-width: 250px;
@@ -473,4 +473,3 @@ $media-container-width: 250px;
 ```
 
 [Back to top ⬆️](#pushpin-table-of-contents)
-
