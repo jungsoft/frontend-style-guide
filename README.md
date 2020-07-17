@@ -11,7 +11,7 @@ follow code style best practices, maintaining a pattern.
 
 * [Components Definition](#components-definition)
 * [Project Organization](#project-organization)
-* [Code Standarts](#code-standards)
+* [Code Standards](#code-standards)
 * [Styles Patterns](#styles-patterns)
 
 ## Components Definition 
@@ -67,6 +67,8 @@ awesome-project/
               └── updateLeadsMutation.ts
 ```
 
+[Back to top ⬆️](#pushpin-table-of-contents) 
+
 # Code standards
 
 ## Code style
@@ -91,6 +93,7 @@ isNumber(1)
 ```
 
 ### Use searchable and semantic names
+
 Bad
 ```js
 setTimeout(doSomething, 86400000)
@@ -102,6 +105,192 @@ const DAY_IN_MILLISECONDS = 86400000
 
 setTimeout(doSomething, DAY_IN_MILLISECONDS)
 ```
+
+[Back to top ⬆️](#pushpin-table-of-contents)
+
+### Just leave TODOs if it's related with a new issue
+
+Bad
+```
+  // TODO: Extract this to a component. 
+  {...}
+```
+
+Good 
+```
+  // TODO: Support recording voice messages in chat.
+  {...}
+```
+
+### Leave comments for workrounds related to issues with a lib/language 
+
+Bad
+```
+const handleFilePreview = useCallback((event) => {
+ const file = Array.from(event.target.files)[0];
+ 
+ // eslint-disable-next-line no-param-reassign
+ event.target.value = "";
+```
+
+Good
+```
+const handleFilePreview = useCallback((event) => {
+ const file = Array.from(event.target.files)[0];
+    
+ // Refer to issue https://github.com/ngokevin/react-file-reader-input/issues/11#issuecomment-363484861
+ // eslint-disable-next-line no-param-reassign
+ event.target.value = "";
+```
+
+### Apply JSDocs to utility functions or constants to improve readability 
+
+Bad
+```
+const truncateEventName = (
+  eventName,
+  maxLength = SHORT_EVENT_NAME_LENGTH,
+) => (
+```
+
+Good
+```
+/**
+ * Truncates one event name to the max length.
+ * @param {*} eventName The event name
+ * @param {*} maxLength Max text length
+ */
+const truncateEventName = (
+  eventName,
+  maxLength = SHORT_EVENT_NAME_LENGTH,
+) => (
+```
+ 
+Bad
+```
+const chatEventsStatuses = {
+  CURRENT_USER_LEFT,
+  CURRENT_USER_WAS_REMOVED,
+  CURRENT_USER_REMOVED_MEMBER,
+  CURRENT_USER_WAS_ADDED,
+```
+
+Good
+```
+/**
+ * The chat event statuses according to the
+ * current user and the chat event member
+ */
+const chatEventsStatuses = {
+  CURRENT_USER_LEFT,
+  CURRENT_USER_WAS_REMOVED,
+  CURRENT_USER_REMOVED_MEMBER,
+  CURRENT_USER_WAS_ADDED,
+```
+
+### Use curried functions to avoid recreating inline functions on every render of the component 
+
+Bad
+```
+const handleClick = (item) => {
+ {...}
+};
+
+<Button onClick={() => handleClick(item)}>
+```
+
+Good
+```
+const handleClick = (item) => () => {
+ {...}
+};
+
+<Button onClick={handleClick(item)}>
+```
+
+### Break lines for multiple hook dependencies
+
+Bad
+```
+useEffect(() => {
+    if (file) {
+      processFile(file)
+        .then(({ result }) => {
+          setFileSource(result);
+        })
+        .catch(() => {
+          notify.danger(t("errors.an_error_occurred"));
+        });
+    }
+  }, [setFileSource, file, fileSource, isVideo, notify, t]);
+```
+
+Good
+```
+useEffect(() => {
+    if (file) {
+      processFile(file)
+        .then(({ result }) => {
+          setFileSource(result);
+        })
+        .catch(() => {
+          notify.danger(t("errors.an_error_occurred"));
+        });
+    }
+  }, [
+    setFileSource,
+    file,
+    fileSource,
+    isVideo,
+    notify,
+    t,
+  ]);
+```
+
+### Break lines for multiple conditions and extract to semantic variables
+
+Bad
+```
+const hasSelectedOffer = !!(
+      selectedProduct
+      || selectedLeasingOffer
+    );
+
+if ((!selectedProduct && !selectedLeasingOffer) || !individualOffer) {
+   return;
+}
+
+```
+
+Good
+```
+const hasSelectedOffer = !!(
+   selectedProduct
+   || selectedLeasingOffer
+);
+
+if (!hasSelectedOffer && !individualOffer) {
+   return;
+}
+```
+
+### Use nulish coalescing to access object properties instead of destructuring 
+
+Bad
+```
+  const {
+    values: {
+      answers,
+    },
+  } = formikForm;
+```
+
+Good
+```
+  const answers = formikForm?.values?.answers;
+```
+
+[Back to top ⬆️](#pushpin-table-of-contents)
 
 ## Components 
 
@@ -130,6 +319,39 @@ Good
   Click here
 </button>
 ```
+
+### JSX Indentation - Curly Braces 
+
+Bad
+```
+{!isEnd && (
+   <Button
+     className={scheduleADemoButtonClasses}
+     onClick={handleNavigateToEnd}
+   >
+     <h4>
+       Schedule a Demo
+     </h4>
+   </Button>
+)}
+```
+
+Good 
+```
+{
+   !isEnd && (
+      <Button
+        className={scheduleADemoButtonClasses}
+        onClick={handleNavigateToEnd}
+      >
+        <h4>
+          Schedule a Demo
+        </h4>
+      </Button>
+   )
+}
+```
+
 
 ## Styles Patterns
 
@@ -201,4 +423,6 @@ $media-container-width: 250px;
    width: $media-container-width;
 }
 ```
+
+[Back to top ⬆️](#pushpin-table-of-contents)
 
