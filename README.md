@@ -71,8 +71,6 @@ awesome-project/
 
 # Code standards
 
-## Code style
-
 ### Use explanatory variables
 Bad
 ```js
