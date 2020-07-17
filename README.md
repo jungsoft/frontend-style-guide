@@ -318,7 +318,7 @@ if (!hasSelectedOffer && !individualOffer) {
   } = useSafeQuery(GET_LIST_HEALTH_CENTER_QUERY);
  ```
 
-### Prefer to use nullish coalescing to access object properties instead of destructuring
+### Prefer to use optional chaining to access object properties instead of destructuring
 
 ❌ Bad
 ```
