@@ -288,7 +288,7 @@ if (!hasSelectedOffer && !individualOffer) {
 }
 ```
 
-# Break lines between queries and mutations hooks
+### Break lines between queries and mutations hooks
 
 Bad
 ```
