@@ -430,7 +430,6 @@ $aspect-ratio: 1.78;
 .media-container {
  right: calc(#{$video-width} * #{$video-position-ratio});
  width: $video-width;
- height: calc(#{$video-width} / 1.78);
  height: calc(#{$video-width} / #{$aspect-ratio});
 }
 ```
