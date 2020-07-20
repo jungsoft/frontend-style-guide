@@ -39,13 +39,16 @@ The source code of a project should be separated with at least these following e
 ```
 awesome-project/
 └── src/
-   ├── components/
-   ├── views/
-   └── contexts/
-   └── router/
-   └── utils/
-   └── translations/
-   └── settings/
+   ├── components/ # Should store the components that are used in many views 
+   ├── views/ # Should store the application views 
+   └── contexts/ # Should store the context API's 
+   └── router/ # Should store the routes configurations 
+   └── utils/ # Should store the utility functions used to perform atomic logics 
+   └── translations/ # Should store the JSON files containing the text translations used in the project 
+   └── settings/ # Should store the configuration files of libs
+      └── yup 
+         └── schemas # Should store the validation schemas of a entity  
+   └── constants/ # Should store the constants related to business rules, shared values, etc. 
 ```
 
 ### `components/`
