@@ -16,8 +16,7 @@ follow code style best practices, maintaining a pattern.
 
 ## Components Definition
 
-All components should be definied within a directory. The component name should be equal to the directory
-and also would have some variants according to his type.
+All components should be definied within a directory. The main component file should be index.tsx.
 
 ```
 LeadsList/
