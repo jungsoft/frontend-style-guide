@@ -270,11 +270,6 @@ useEffect(() => {
 
 ❌ Bad
 ```
-const hasSelectedOffer = !!(
-      selectedProduct
-      || selectedLeasingOffer
-    );
-
 if ((!selectedProduct && !selectedLeasingOffer) || !individualOffer) {
    return;
 }
