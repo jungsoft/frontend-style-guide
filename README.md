@@ -336,38 +336,6 @@ if (!hasSelectedOffer && !individualOffer) {
   const answers = formikForm?.values?.answers;
 ```
 
-[Back to top ⬆️](#pushpin-table-of-contents)
-
-## Components
-
-### Avoid one line props when are more than 2 or big props
-
-❌ Bad
-```jsx
-<button type="submit" disabled onClick={() => null} className="aLongSpecificClassName">
-  Click here
-</button>
-
-<button type="submit" className="aLongSpecificClassName">
-  Click here
-</button>
-```
-
-
-✅ Good
-```jsx
-<button
-  className="aLongSpecificClassNameWithLasers"
-  disabled={loading}
-  onClick={() => null}
-  type="submit"
->
-  Click here
-</button>
-```
-
-<br />
-
 ### JSX Indentation - Curly Braces
 
 ❌ Bad
@@ -400,6 +368,7 @@ if (!hasSelectedOffer && !individualOffer) {
 }
 ```
 
+[Back to top ⬆️](#pushpin-table-of-contents)
 
 ## Styles Patterns
 
