@@ -111,6 +111,8 @@ setTimeout(doSomething, DAY_IN_MILLISECONDS)
 
 [Back to top ⬆️](#pushpin-table-of-contents)
 
+<br />
+
 ### Just leave TODOs if it's related to a new issue
 
 ❌ Bad
