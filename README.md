@@ -285,6 +285,8 @@ if (!hasSelectedOffer && !individualOffer) {
 }
 ```
 
+<br />
+
 ### Break lines between queries and mutations hooks
 
 ❌ Bad
@@ -317,6 +319,8 @@ if (!hasSelectedOffer && !individualOffer) {
   } = useSafeQuery(GET_LIST_HEALTH_CENTER_QUERY);
  ```
 
+<br />
+
 ### Prefer to use optional chaining to access object properties instead of destructuring
 
 ❌ Bad
@@ -332,6 +336,8 @@ if (!hasSelectedOffer && !individualOffer) {
 ```
   const answers = formikForm?.values?.answers;
 ```
+
+<br />
 
 ### JSX Indentation - Curly Braces
 
