@@ -21,14 +21,14 @@ and also would have some variants according to his type.
 
 ```
 LeadsList/
-├── LeadsList.tsx
+├── index.tsx
 ```
 
 If it has some logic that would lead to a separation of concerns between presentational
 and container components, the structure should be as following:
 ```
 LeadsList/
-├── LeadsListContainer.tsx
+├── index.tsx
 ├── LeadsListContent.tsx
 ```
 
