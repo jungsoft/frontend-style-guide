@@ -307,8 +307,8 @@ if (!hasSelectedOffer && !individualOffer) {
 ✅ Good
 ```
   const [currentUser] = useCurrentUser();
-  const notify = useSnackbar();
   const [t] = useTranslation();
+  const notify = useSnackbar();
 
   const [sendRiskAssessment] = useMutation(SEND_RISK_ASSESSMENT_MUTATION);
 
