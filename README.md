@@ -154,6 +154,8 @@ const handleFilePreview = useCallback((event) => {
 
 ### Apply JSDocs to utility functions or constants to improve readability
 
+It can be applied to components, handlers or utility functions.
+
 ❌ Bad
 ```
 const truncateEventName = (
