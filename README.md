@@ -16,7 +16,7 @@ follow code style best practices, maintaining a pattern.
 
 ## Components Definition
 
-All components should be definied within a directory. The main component file should be index.tsx.
+All components should be definied within a directory. The main component file should be ``index.tsx``
 
 ```
 LeadsList/
@@ -107,8 +107,6 @@ const DAY_IN_MILLISECONDS = 86400000
 
 setTimeout(doSomething, DAY_IN_MILLISECONDS)
 ```
-
-[Back to top ⬆️](#pushpin-table-of-contents)
 
 <br />
 
