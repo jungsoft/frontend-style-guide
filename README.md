@@ -7,6 +7,9 @@
 The goal of this guide is to help our team to understand and
 follow code style best practices, maintaining a pattern.
 
+As this guide is an extension of the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript),
+we **highly recommend** reading it before you continue.
+
 # :pushpin: Table of Contents
 
 * [Components Definition](#components-definition)
