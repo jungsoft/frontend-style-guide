@@ -379,6 +379,7 @@ if (!hasSelectedOffer && !individualOffer) {
 ### Early returns
 
 The function should trigger the termination as soon as possible in case of divergence with its purpose.
+
 ❌ Bad
 ```
 function someFunction(someCondition) {
