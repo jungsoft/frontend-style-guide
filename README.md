@@ -2,6 +2,8 @@
 
 # Frontend Style Guide
 
+Welcome to Jungsoft's Frontend Style Guide. Sit down, have a cup of coffee and read this calmly. ☕
+
 ## Introduction
 
 The goal of this guide is to help our team to understand and
@@ -41,16 +43,16 @@ The source code of a project should be separated with at least these following e
 ```
 awesome-project/
 └── src/
-   ├── components/ # Should store the components that are used in many views 
-   ├── views/ # Should store the application views 
-   └── contexts/ # Should store the context API's 
-   └── router/ # Should store the routes configurations 
-   └── utils/ # Should store the utility functions used to perform atomic logics 
-   └── translations/ # Should store the JSON files containing the text translations used in the project 
+   ├── components/ # Should store the components that are used in many views
+   ├── views/ # Should store the application views
+   └── contexts/ # Should store the context API's
+   └── router/ # Should store the routes configurations
+   └── utils/ # Should store the utility functions used to perform atomic logics
+   └── translations/ # Should store the JSON files containing the text translations used in the project
    └── settings/ # Should store the configuration files of libs
-      └── yup 
-         └── schemas # Should store the validation schemas of a entity  
-   └── constants/ # Should store the constants related to business rules, shared values, etc. 
+      └── yup
+         └── schemas # Should store the validation schemas of a entity
+   └── constants/ # Should store the constants related to business rules, shared values, etc.
 ```
 
 ### `components/`
@@ -371,6 +373,29 @@ if (!hasSelectedOffer && !individualOffer) {
         </h4>
       </Button>
    )
+}
+```
+
+### Early returns
+
+The function should trigger the termination as soon as possible in case of divergence with its purpose.
+❌ Bad
+```
+function someFunction(someCondition) {
+    if (someCondition) {
+        // Do something
+    }
+}
+```
+
+✅ Good
+```
+function someFunction(someCondition) {
+    if (!someCondition) {
+        return
+    }
+
+    // Do something
 }
 ```
 
