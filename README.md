@@ -21,7 +21,7 @@ we **highly recommend** reading it before you continue.
 
 ## Components Definition
 
-All components should be definied within a directory. The main component file should be ``index.tsx``
+All components should be defined within a directory. The main component file should be ``index.tsx``
 
 ```
 LeadsList/
@@ -51,7 +51,7 @@ awesome-project/
    └── translations/ # Should store the JSON files containing the text translations used in the project
    └── settings/ # Should store the configuration files of libs
       └── yup
-         └── schemas # Should store the validation schemas of a entity
+         └── schemas # Should store the validation schemas of an entity
    └── constants/ # Should store the constants related to business rules, shared values, etc.
 ```
 
