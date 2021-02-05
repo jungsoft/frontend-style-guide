@@ -1,4 +1,4 @@
-<img src="https://jungsoft.io/static/media/jungsoft_logo.c44eaf52.png" width="300px"/>
+<img src="jungsoft_logo.png" width="300px"/>
 
 # Frontend Style Guide
 
